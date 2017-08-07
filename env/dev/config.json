@@ -1,3 +1,12 @@
 {
-  "authEndPoint": "10.0.2.165:3000"
+  "authEndPoint": "10.0.2.165:3000",
+
+  "cinemaCatelog_host": "localhost",
+  "cinemaCatelog_port": "4001",
+
+  "moviesService_host": "localhost",
+  "moviesService_port": "4002",
+
+  "authServer_host": "localhost",
+  "authServer_port": "3000"
 }
