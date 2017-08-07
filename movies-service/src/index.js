@@ -1,14 +1,21 @@
 import express from 'express';
 import { createServer } from 'http';
-import client from './grpc-communication/client';
+import nconf from "nconf";
+
+import { router } from "./Auth/routes";
+import client from './grpc-communication/client'; // Required
+
+nconf.argv().env().file({ file: `../../env/${process.env.NODE_ENV}/config.json` })
 
 const app = express();
 
-app.get('/', function(req,res){
+app.use(router);
+
+app.get('/', function (req, res) {
   res.json('hello Movies');
-})
+});
 
 const server = createServer(app);
-server.listen(3001, function(){
+server.listen(3001, function () {
   console.log('Movies service started on port 3001');
 });
