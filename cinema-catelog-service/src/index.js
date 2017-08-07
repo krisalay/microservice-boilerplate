@@ -11,6 +11,6 @@ app.use('/', function(req,res){
 })
 
 const server = createServer(app);
-server.listen(3000, function(){
-  console.log('Cinema catelog service started on port 3000');
+server.listen(4001, function(){
+  console.log('Cinema catelog service started on port 4001');
 });
