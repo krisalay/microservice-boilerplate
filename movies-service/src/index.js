@@ -9,6 +9,6 @@ app.get('/', function(req,res){
 })
 
 const server = createServer(app);
-server.listen(3001, function(){
-  console.log('Movies service started on port 3001');
+server.listen(4002, function(){
+  console.log('Movies service started on port 4002');
 });
