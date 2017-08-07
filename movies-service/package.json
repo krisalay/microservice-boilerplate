@@ -14,7 +14,8 @@
     "express": "^4.15.3",
     "grpc": "^1.4.1",
     "nconf": "^0.8.4",
-    "openid-client": "^1.12.0"
+    "openid-client": "^1.12.0",
+    "q": "^1.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

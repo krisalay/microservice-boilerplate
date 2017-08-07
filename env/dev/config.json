@@ -1,5 +1,5 @@
 {
-  "authEndPoint": "10.0.2.165:3000",
+  "authEndPoint": "localhost:3000",
 
   "cinemaCatelog_host": "localhost",
   "cinemaCatelog_port": "4001",
