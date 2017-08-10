@@ -3,9 +3,11 @@
 
   "cinemaCatelog_host": "localhost",
   "cinemaCatelog_port": "4001",
+  "cinemaCatelog_db_url": "mongodb://127.0.0.1:27017/msb-cinema-catelog",
 
   "moviesService_host": "localhost",
   "moviesService_port": "4002",
+  "moviesService_db_url": "mongodb://127.0.0.1:27017/msb-movies",
 
   "authServer_host": "localhost",
   "authServer_port": "3000"

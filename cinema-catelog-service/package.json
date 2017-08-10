@@ -11,8 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.4",
+    "eventstore": "^1.12.3",
     "express": "^4.15.3",
-    "grpc": "^1.4.1"
+    "grpc": "^1.4.1",
+    "mongoose": "^4.11.6",
+    "servicebus": "^2.0.10"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
