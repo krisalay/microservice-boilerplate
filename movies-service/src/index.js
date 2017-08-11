@@ -14,6 +14,8 @@ const app = express();
 
 mongoose.connect("mongodb://127.0.0.1:27017/msb-movies");
 
+setupHandlers();
+
 //app.use(router);
 app.get('/', function (req, res) {
   res.json(req.headers);
@@ -23,14 +25,8 @@ app.get('/', function (req, res) {
 let bus = servicebus.bus({
   url: "amqp://localhost:5672"
 });
-bus.subscribe('broadcast', function(msg){
-  console.log(msg);
-  if(msg.command == 'heartbeat') {
-    bus.send('process.manager', {
-        id: 'process2',
-        status: 'online'
-    });
-  }
+bus.subscribe('event.addedCinema', function(msg){
+  console.log('$#$#$#$#$#$#$#$#$#$#$', msg);
 });
 
 const server = createServer(app);
@@ -38,3 +34,16 @@ const server = createServer(app);
 server.listen(4002, function(){
   console.log('Movies service started on port 4002');
 });
+
+function setupHandlers() {
+  process.on('SIGINT', function(){
+    console.log('Gracefully shutting down server on port 4002 from SIGINT (Ctrl+C)');
+    process.exit();
+  });
+
+  app.on('error', function(err){
+    if(process.env.NODE_ENV != 'test') {
+      console.log('sent error %s', util.inspect(err));
+    }
+  });
+}
