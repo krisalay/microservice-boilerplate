@@ -5,8 +5,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import util from 'util';
 
-import { addCinema } from './routes';
-
+import { addCinema, fetchCinema, fetchMoviesByCinemaId } from './routes';
 import { grpcServer } from './grpc-communication/server';
 grpcServer.start();
 
@@ -23,7 +22,9 @@ setupHandlers();
 //   res.json('hello catelog');
 // });
 
-app.post('/add-cinema',addCinema);
+app.get('/add-cinema',addCinema);
+app.get('/fetch-cinema', fetchCinema);
+app.get('/fetch-movies/:cinemaId', fetchMoviesByCinemaId);
 
 
 const server = createServer(app);

@@ -17,6 +17,7 @@ async function addedCinemaEventBuilder(cinemaSessions, data) {
 
 	return {
 		type: EVT_ADDED_CINEMA,
+		service: 'cinema',
 		data: cinemaSession
 	};
 }

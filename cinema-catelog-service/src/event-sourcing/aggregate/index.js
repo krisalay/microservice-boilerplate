@@ -1,7 +1,7 @@
 function open(data) {
 	console.log('inside open..........', data);
 	return {
-		userId: data.userId,
+		cinemaName: data.name || "Test cinema",
 		time: new Date()
 	}
 }

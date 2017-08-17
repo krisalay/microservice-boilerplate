@@ -7,7 +7,8 @@ import mongoose from 'mongoose';
 
 //import { router } from "./Auth/routes";
 import client from './grpc-communication/client'; // Required
-
+import { grpcServer } from './grpc-communication/server';
+grpcServer.start();
 nconf.argv().env().file({ file: `../../env/${process.env.NODE_ENV}/config.json` })
 
 const app = express();

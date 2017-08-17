@@ -1,6 +1,6 @@
 'use strict';
 const names = {
-  EVT_ADDED_CINEMA        : "cinema.add"
+  EVT_ADDED_CINEMA        : "add"
 };
 
 module.exports = names;

@@ -5,6 +5,10 @@ import { EVT_ADDED_CINEMA } from '../event-sourcing/events/names';
 import Events from '../event-sourcing/events';
 import state from '../event-sourcing/state';
 
+let bus = servicebus.bus({
+  url: "amqp://localhost:5672"
+});
+
 async function addCinema(req,res,next) {
   let eventResult;
   try {
@@ -27,12 +31,7 @@ async function addCinema(req,res,next) {
   } finally {
     if(db) db.close();
   }
-  
-  let bus = servicebus.bus({
-    url: "amqp://localhost:5672"
-  });
-
-  bus.publish('event.addedCinema', eventResult);
+  bus.publish('EVENT.ADDED_CINEMA', eventResult);
 
   //state.cinemaSession = await reduce(state.cinemaSession, eventResult);
 

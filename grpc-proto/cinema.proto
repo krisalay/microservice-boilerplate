@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package cinema_catelog;
+
+service CinemaService {
+  rpc fetchMovies(Cinema) returns (FetchMoviesResponse);
+}
+
+message Cinema {
+  int32 cinema_id = 1;
+}
+
+message FetchMoviesResponse  {
+  bool fetched = 1;
+}
