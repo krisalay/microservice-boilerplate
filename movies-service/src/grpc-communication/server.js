@@ -9,6 +9,6 @@ const grpcServer = new grpc.Server();
 
 grpcServer.addService(proto.cinema_catelog.CinemaService.service, cinemaService);
 
-grpcServer.bind('0.0.0.0:50050', grpc.ServerCredentials.createInsecure());
+grpcServer.bind('0.0.0.0:50051', grpc.ServerCredentials.createInsecure());
 
 module.exports = { grpcServer };

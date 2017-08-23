@@ -5,18 +5,25 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import util from 'util';
 
+import { rebuildCinemaSessionsFromEvents } from './event-sourcing/utils';
+import state from './event-sourcing/state';
+
+import task from './event-sourcing/snapshot';
+
 import { addCinema, fetchCinema, fetchMoviesByCinemaId } from './routes';
 import { grpcServer } from './grpc-communication/server';
 grpcServer.start();
 
-const app = express();
 
+
+const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
 mongoose.connect("mongodb://127.0.0.1:27017/msb-cinema-catelog");
 
 setupHandlers();
+rebuildCinemaSessionsFromEvents(state);
 
 // app.use('/', function(req,res){
 //   res.json('hello catelog');
