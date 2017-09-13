@@ -10,6 +10,7 @@ let bus = servicebus.bus({
 });
 
 async function addCinema(req,res,next) {
+  console.log(req.body);
   let eventResult;
   try {
     eventResult = await Events[EVT_ADDED_CINEMA](state.cinemaSession, req.body);

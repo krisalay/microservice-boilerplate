@@ -8,8 +8,6 @@ import util from 'util';
 import { rebuildCinemaSessionsFromEvents } from './event-sourcing/utils';
 import state from './event-sourcing/state';
 
-import task from './event-sourcing/snapshot';
-
 import { addCinema, fetchCinema, fetchMoviesByCinemaId } from './routes';
 import { grpcServer } from './grpc-communication/server';
 grpcServer.start();
@@ -29,7 +27,7 @@ rebuildCinemaSessionsFromEvents(state);
 //   res.json('hello catelog');
 // });
 
-app.get('/add-cinema',addCinema);
+app.post('/add-cinema',addCinema);
 app.get('/fetch-cinema', fetchCinema);
 app.get('/fetch-movies/:cinemaId', fetchMoviesByCinemaId);
 
