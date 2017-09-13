@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Microservice Boilerplate
 
 This project contains the folder structure and boilerplate for microservice architecture
@@ -36,3 +37,7 @@ nconf.argv().env().file({
 
 Now to access any of the environment variables, just use 
 `nconf.get("keyName")`
+=======
+# microservice-boilerplate
+This repository is a boilerplate for the microservice architecture using Nodejs.
+>>>>>>> dd4f299a0b11cbe6121b116fb1a9fadce36ca755
